@@ -191,7 +191,6 @@ a {
   background-position: center 42%;
   background-size: min(620px, 72vw);
   background-attachment: fixed;
-  filter: grayscale(1) sepia(0.18);
 }
 
 .about-history__inner {
