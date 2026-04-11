@@ -272,6 +272,110 @@ a {
   box-shadow: 0 24px 54px rgba(17, 17, 17, 0.12);
 }
 
+.client-testimonials {
+  position: relative;
+  overflow: hidden;
+  width: 100%;
+  padding: 72px 32px 68px;
+  background-image: url("asset/foto fundo seção 3.jfif.jpeg"); /* Imagem de fundo da seção de depoimentos */
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  color: #ffffff;
+}
+
+.client-testimonials__overlay {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  background: rgba(25, 43, 36, 0.68);
+  pointer-events: none;
+}
+
+.client-testimonials__inner {
+  position: relative;
+  z-index: 1;
+  width: min(1040px, 100%);
+  margin: 0 auto;
+}
+
+.client-testimonials__header {
+  text-align: center;
+}
+
+.client-testimonials__title {
+  margin: 0;
+  font-family: "Libre Baskerville", serif;
+  font-size: 38px;
+  line-height: 1.2;
+  font-weight: 400;
+  color: #cdad7d;
+}
+
+.client-testimonials__subtitle {
+  margin: 14px 0 0;
+  font-family: "Libre Baskerville", serif;
+  font-size: 18px;
+  line-height: 1.6;
+  font-weight: 400;
+  color: rgba(255, 255, 255, 0.92);
+}
+
+.client-testimonials__grid {
+  display: grid;
+  grid-template-columns: repeat(3, 170px);
+  justify-content: center;
+  gap: 22px 74px;
+  margin-top: 22px;
+}
+
+.testimonial-card {
+  min-height: 200px;
+  padding: 17px 14px 14px;
+  border: 1px solid #cdad7d;
+  background: transparent;
+}
+
+.testimonial-card__quote {
+  margin: 0;
+  font-family: "Inter", sans-serif;
+  font-size: 14px;
+  line-height: 1.35;
+  font-weight: 400;
+  color: #ffffff;
+}
+
+.testimonial-card__client {
+  margin: 18px 0 0;
+  font-family: "Libre Baskerville", serif;
+  font-size: 16px;
+  line-height: 1.4;
+  font-style: italic;
+  color: #cdad7d;
+}
+
+.client-testimonials__metrics {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 32px;
+  align-items: center;
+  margin-top: 52px;
+  text-align: center;
+}
+
+.client-testimonials__metrics p {
+  margin: 0;
+  font-family: "Libre Baskerville", serif;
+  font-size: 38px;
+  line-height: 1.22;
+  font-weight: 400;
+  background-image: linear-gradient(180deg, #e7aa51, #ffe499, #8d5a1b, #e7aa51, #ac7031, #ac7031);
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: transparent;
+  -webkit-text-fill-color: transparent;
+}
+
 @media (max-width: 900px) {
   .hero {
     padding: 26px 24px 40px;
@@ -352,6 +456,26 @@ a {
 
   .lawyer-profile__media {
     max-width: 520px;
+  }
+
+  .client-testimonials {
+    padding: 68px 24px 62px;
+  }
+
+  .client-testimonials__grid {
+    grid-template-columns: repeat(2, minmax(170px, 240px));
+    gap: 24px 36px;
+    margin-top: 30px;
+  }
+
+  .testimonial-card {
+    min-height: 190px;
+    padding: 18px 16px 16px;
+  }
+
+  .client-testimonials__metrics {
+    gap: 24px;
+    margin-top: 52px;
   }
 }
 
@@ -434,5 +558,41 @@ a {
 
   .lawyer-profile__media img {
     aspect-ratio: 0.78;
+  }
+
+  .client-testimonials {
+    padding: 56px 18px 54px;
+    background-position: center top;
+  }
+
+  .client-testimonials__title {
+    font-size: 38px;
+  }
+
+  .client-testimonials__subtitle {
+    font-size: 18px;
+    margin-top: 14px;
+  }
+
+  .client-testimonials__grid {
+    grid-template-columns: minmax(0, 270px);
+    justify-content: center;
+    gap: 18px;
+    margin-top: 30px;
+  }
+
+  .testimonial-card {
+    min-height: auto;
+    padding: 20px 18px;
+  }
+
+  .client-testimonials__metrics {
+    grid-template-columns: 1fr;
+    gap: 18px;
+    margin-top: 44px;
+  }
+
+  .client-testimonials__metrics p {
+    font-size: 34px;
   }
 }
