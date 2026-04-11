@@ -330,6 +330,8 @@ a {
 }
 
 .testimonial-card {
+  display: flex;
+  flex-direction: column;
   min-height: 200px;
   padding: 24px 22px 20px;
   border: 1px solid #cdad7d;
@@ -346,7 +348,8 @@ a {
 }
 
 .testimonial-card__client {
-  margin: 18px 0 0;
+  margin: auto 0 0;
+  padding-top: 18px;
   font-family: "Libre Baskerville", serif;
   font-size: 16px;
   line-height: 1.4;
@@ -356,11 +359,23 @@ a {
 
 .client-testimonials__metrics {
   display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
+  grid-template-columns: max-content max-content;
+  justify-content: space-between;
   gap: 32px;
   align-items: center;
+  width: min(860px, 100%);
   margin-top: 52px;
+  margin-right: auto;
+  margin-left: auto;
   text-align: center;
+}
+
+.client-testimonials__metrics p:first-child {
+  text-align: left;
+}
+
+.client-testimonials__metrics p:last-child {
+  text-align: right;
 }
 
 .client-testimonials__metrics p {
@@ -369,6 +384,7 @@ a {
   font-size: 38px;
   line-height: 1.22;
   font-weight: 400;
+  white-space: nowrap;
   background-image: linear-gradient(180deg, #e7aa51, #ffe499, #8d5a1b, #e7aa51, #ac7031, #ac7031);
   background-clip: text;
   -webkit-background-clip: text;
@@ -474,6 +490,7 @@ a {
   }
 
   .client-testimonials__metrics {
+    width: min(720px, 100%);
     gap: 24px;
     margin-top: 52px;
   }
@@ -588,11 +605,17 @@ a {
 
   .client-testimonials__metrics {
     grid-template-columns: 1fr;
+    width: 100%;
     gap: 18px;
     margin-top: 44px;
   }
 
+  .client-testimonials__metrics p:first-child,
+  .client-testimonials__metrics p:last-child {
+    text-align: center;
+  }
+
   .client-testimonials__metrics p {
-    font-size: 34px;
+    font-size: 30px;
   }
 }
