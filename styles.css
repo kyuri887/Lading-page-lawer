@@ -33,7 +33,7 @@ a {
   justify-content: space-between;
   background-image:
     linear-gradient(var(--overlay), var(--overlay)),
-    url("foto de fundo part 1.jpg");
+    url("asset/foto\ de\ fundo\ part\ 1.jpg");
   background-position: center;
   background-size: cover;
   background-repeat: no-repeat;
@@ -171,6 +171,108 @@ a {
   border-color: rgba(205, 173, 125, 0.55);
 }
 
+.about-history {
+  position: relative;
+  overflow: hidden;
+  width: 100%;
+  background: #eeead6;
+  color: #111111;
+  padding: 78px 32px 96px;
+}
+
+.about-history__watermark {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  opacity: 0.15;
+  pointer-events: none;
+  background-image: url("asset/logo Jales e Ramos.png"); /* Imagem de fundo/overlay: troque este caminho se desejar */
+  background-repeat: no-repeat;
+  background-position: center 42%;
+  background-size: min(620px, 72vw);
+  background-attachment: fixed;
+  filter: grayscale(1) sepia(0.18);
+}
+
+.about-history__inner {
+  position: relative;
+  z-index: 1;
+  width: min(1180px, 100%);
+  margin: 0 auto;
+}
+
+.about-history__title {
+  margin: 0 0 46px;
+  font-family: "Libre Baskerville", serif;
+  font-size: 38px;
+  line-height: 1.2;
+  font-weight: 400;
+  color: #cdad7d;
+}
+
+.lawyer-profile {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(320px, 0.74fr);
+  align-items: center;
+  gap: clamp(48px, 7vw, 92px);
+}
+
+.lawyer-profile + .lawyer-profile {
+  margin-top: 88px;
+}
+
+.lawyer-profile--image-left {
+  grid-template-columns: minmax(320px, 0.74fr) minmax(0, 1fr);
+}
+
+.lawyer-profile__content {
+  max-width: 610px;
+}
+
+.lawyer-profile--image-left .lawyer-profile__content {
+  justify-self: end;
+}
+
+.lawyer-profile__name {
+  margin: 0 0 24px;
+  font-family: "Libre Baskerville", serif;
+  font-size: 34px;
+  line-height: 1.18;
+  font-weight: 400;
+  color: #cdad7d;
+}
+
+.lawyer-profile__text {
+  font-family: "Libre Baskerville", serif;
+  font-size: 18.6px;
+  line-height: 1.72;
+  font-weight: 400;
+  color: #111111;
+  text-align: justify;
+}
+
+.lawyer-profile__text p {
+  margin: 0;
+}
+
+.lawyer-profile__text p + p {
+  margin-top: 24px;
+}
+
+.lawyer-profile__media {
+  margin: 0;
+  width: 100%;
+}
+
+.lawyer-profile__media img {
+  display: block;
+  width: 100%;
+  aspect-ratio: 0.82;
+  object-fit: cover;
+  object-position: center;
+  box-shadow: 0 24px 54px rgba(17, 17, 17, 0.12);
+}
+
 @media (max-width: 900px) {
   .hero {
     padding: 26px 24px 40px;
@@ -210,6 +312,47 @@ a {
     max-width: 100%;
     font-size: 17px;
     line-height: 1.65;
+  }
+
+  .about-history {
+    padding: 64px 24px 78px;
+  }
+
+  .about-history__watermark {
+    background-attachment: scroll;
+    background-position: center 18%;
+    background-size: min(520px, 92vw);
+  }
+
+  .about-history__title {
+    margin-bottom: 38px;
+  }
+
+  .lawyer-profile,
+  .lawyer-profile--image-left {
+    grid-template-columns: 1fr;
+    gap: 30px;
+  }
+
+  .lawyer-profile + .lawyer-profile {
+    margin-top: 68px;
+  }
+
+  .lawyer-profile--image-left .lawyer-profile__media {
+    order: 2;
+  }
+
+  .lawyer-profile--image-left .lawyer-profile__content {
+    justify-self: stretch;
+    order: 1;
+  }
+
+  .lawyer-profile__content {
+    max-width: 100%;
+  }
+
+  .lawyer-profile__media {
+    max-width: 520px;
   }
 }
 
@@ -260,5 +403,37 @@ a {
   .hero__cta {
     margin-top: 28px;
     min-width: 100%;
+  }
+
+  .about-history {
+    padding: 52px 18px 64px;
+  }
+
+  .about-history__title {
+    font-size: 38px;
+    margin-bottom: 34px;
+  }
+
+  .lawyer-profile + .lawyer-profile {
+    margin-top: 58px;
+  }
+
+  .lawyer-profile__name {
+    font-size: 34px;
+    margin-bottom: 20px;
+  }
+
+  .lawyer-profile__text {
+    font-size: 18.6px;
+    line-height: 1.68;
+    text-align: left;
+  }
+
+  .lawyer-profile__text p + p {
+    margin-top: 20px;
+  }
+
+  .lawyer-profile__media img {
+    aspect-ratio: 0.78;
   }
 }
