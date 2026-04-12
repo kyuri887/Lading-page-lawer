@@ -337,6 +337,18 @@ a {
   padding: 24px 22px 20px;
   border: 1px solid #cdad7d;
   background: transparent;
+  transition:
+    transform 220ms ease,
+    background-color 220ms ease,
+    border-color 220ms ease,
+    box-shadow 220ms ease;
+}
+
+.testimonial-card:hover {
+  transform: translateY(-8px);
+  border-color: #f0cf9b;
+  background-color: rgba(205, 173, 125, 0.1);
+  box-shadow: 0 14px 28px rgba(0, 0, 0, 0.22);
 }
 
 .testimonial-card__quote {
