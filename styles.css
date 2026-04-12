@@ -784,6 +784,243 @@ a {
   border: 0;
 }
 
+.contact-section {
+  position: relative;
+  overflow: hidden;
+  width: 100%;
+  min-height: 754px;
+  padding: 70px 76px 92px;
+  background-image: url("asset/foto fundo sessão 6.jfif");
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  color: #ffffff;
+}
+
+.contact-section__overlay {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  background: rgba(0, 0, 0, 0.52);
+  pointer-events: none;
+}
+
+.contact-section__inner {
+  position: relative;
+  z-index: 1;
+  display: grid;
+  grid-template-columns: 330px minmax(0, 546px);
+  justify-content: space-between;
+  gap: clamp(64px, 12vw, 226px);
+  width: min(1204px, 100%);
+  min-height: 592px;
+  margin: 0 auto;
+}
+
+.contact-info {
+  display: flex;
+  min-height: 592px;
+  flex-direction: column;
+}
+
+.contact-info__title {
+  margin: 7px 0 34px 21px;
+  font-family: "Libre Baskerville", serif;
+  font-size: 24px;
+  line-height: 1.2;
+  font-weight: 700;
+  color: #cdad7d;
+}
+
+.contact-info__list {
+  display: grid;
+  gap: 20px;
+  margin: 0;
+  font-style: normal;
+}
+
+.contact-info__item {
+  display: grid;
+  grid-template-columns: 34px minmax(0, 1fr);
+  align-items: center;
+  gap: 18px;
+  min-height: 34px;
+  font-family: "Inter", sans-serif;
+  font-size: 14px;
+  line-height: 1.42;
+  font-weight: 600;
+  color: #ffffff;
+}
+
+.contact-info__item p {
+  display: grid;
+  gap: 2px;
+  margin: 0;
+}
+
+.contact-info__icon {
+  display: block;
+  width: 29px;
+  height: 29px;
+  object-fit: contain;
+  filter: sepia(1) saturate(0.7) hue-rotate(356deg) brightness(0.9);
+}
+
+.contact-info__calculator,
+.contact-form__submit {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 45px;
+  border: 0;
+  border-radius: 8px;
+  background: #cdad7d;
+  font-family: "Libre Baskerville", serif;
+  font-size: 12px;
+  line-height: 1.2;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-align: center;
+  color: #ffffff;
+  cursor: pointer;
+  box-shadow: 0 14px 24px rgba(0, 0, 0, 0.18);
+  transition: transform 200ms ease, opacity 200ms ease;
+}
+
+.contact-info__calculator {
+  width: 326px;
+  margin-top: auto;
+  padding: 10px 18px;
+}
+
+.contact-info__calculator:hover,
+.contact-info__calculator:focus-visible,
+.contact-form__submit:hover,
+.contact-form__submit:focus-visible {
+  opacity: 0.9;
+  transform: translateY(-1px);
+}
+
+.contact-info__calculator:focus-visible,
+.contact-form__submit:focus-visible {
+  outline: 2px solid rgba(255, 255, 255, 0.82);
+  outline-offset: 3px;
+}
+
+.contact-form-area {
+  width: min(546px, 100%);
+}
+
+.contact-form-area__title {
+  margin: 0 0 68px;
+  font-family: "Libre Baskerville", serif;
+  font-size: 43.6px;
+  line-height: 1.15;
+  font-weight: 400;
+  letter-spacing: 0.03em;
+  text-align: center;
+  color: #cdad7d;
+}
+
+.contact-form {
+  display: grid;
+  justify-items: center;
+  width: 100%;
+}
+
+.contact-form__grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 34px 16px;
+  width: 100%;
+}
+
+.contact-form__field {
+  display: grid;
+  width: 100%;
+}
+
+.contact-form__field span {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+.contact-form input,
+.contact-form textarea {
+  width: 100%;
+  border: 0;
+  border-radius: 8px;
+  background: rgba(218, 218, 218, 0.68);
+  font-family: "Libre Baskerville", serif;
+  font-size: 12.8px;
+  line-height: 1.3;
+  font-weight: 700;
+  color: #ffffff;
+  outline: none;
+  box-shadow: none;
+  transition: background-color 180ms ease, box-shadow 180ms ease;
+}
+
+.contact-form input {
+  height: 31px;
+  padding: 8px 15px;
+}
+
+.contact-form textarea {
+  min-height: 262px;
+  margin-top: 25px;
+  padding: 13px 15px;
+  resize: vertical;
+}
+
+.contact-form input::placeholder,
+.contact-form textarea::placeholder {
+  color: rgba(255, 255, 255, 0.84);
+  opacity: 1;
+}
+
+.contact-form input:focus,
+.contact-form textarea:focus {
+  background: rgba(218, 218, 218, 0.76);
+  box-shadow: 0 0 0 2px rgba(205, 173, 125, 0.62);
+}
+
+.contact-form__field.is-invalid input,
+.contact-form__field.is-invalid textarea {
+  box-shadow: 0 0 0 2px rgba(205, 173, 125, 0.95);
+}
+
+.contact-form__submit {
+  width: 255px;
+  margin-top: 14px;
+  padding: 10px 28px;
+}
+
+.contact-form__feedback {
+  min-height: 19px;
+  margin: 12px 0 0;
+  font-family: "Inter", sans-serif;
+  font-size: 13px;
+  line-height: 1.45;
+  text-align: center;
+  color: #ffffff;
+}
+
+.contact-form__feedback.is-error {
+  color: #ffffff;
+}
+
+.contact-form__feedback.is-success {
+  color: #cdad7d;
+}
+
 @media (max-width: 1120px) {
   .labor-law__inner {
     width: min(840px, 100%);
@@ -803,6 +1040,19 @@ a {
 
   .faq-item__question {
     font-size: 21px;
+  }
+
+  .contact-section {
+    padding: 68px 48px 82px;
+  }
+
+  .contact-section__inner {
+    grid-template-columns: 300px minmax(0, 546px);
+    gap: 56px;
+  }
+
+  .contact-info__calculator {
+    width: 300px;
   }
 }
 
@@ -977,6 +1227,39 @@ a {
   .faq-item__answer p {
     font-size: 14.6px;
     line-height: 1.58;
+  }
+
+  .contact-section {
+    min-height: auto;
+    padding: 64px 24px 72px;
+  }
+
+  .contact-section__inner {
+    grid-template-columns: 1fr;
+    gap: 58px;
+    min-height: auto;
+  }
+
+  .contact-info {
+    min-height: auto;
+    align-items: flex-start;
+  }
+
+  .contact-info__title {
+    margin-left: 0;
+  }
+
+  .contact-info__calculator {
+    width: min(326px, 100%);
+    margin-top: 48px;
+  }
+
+  .contact-form-area {
+    width: 100%;
+  }
+
+  .contact-form-area__title {
+    margin-bottom: 44px;
   }
 }
 
@@ -1212,6 +1495,61 @@ a {
   .faq-item__answer {
     max-width: none;
   }
+
+  .contact-section {
+    padding: 56px 18px 64px;
+    background-position: center;
+  }
+
+  .contact-info__title {
+    margin-bottom: 28px;
+    font-size: 24px;
+  }
+
+  .contact-info__list {
+    gap: 18px;
+  }
+
+  .contact-info__item {
+    grid-template-columns: 30px minmax(0, 1fr);
+    gap: 14px;
+  }
+
+  .contact-info__icon {
+    width: 26px;
+    height: 26px;
+  }
+
+  .contact-info__calculator {
+    min-height: 48px;
+    margin-top: 42px;
+    font-size: 11px;
+  }
+
+  .contact-form-area__title {
+    margin-bottom: 34px;
+    font-size: 36px;
+  }
+
+  .contact-form__grid {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+
+  .contact-form input {
+    height: 34px;
+  }
+
+  .contact-form textarea {
+    min-height: 190px;
+    margin-top: 16px;
+  }
+
+  .contact-form__submit {
+    width: min(255px, 100%);
+    min-height: 46px;
+    margin-top: 16px;
+  }
 }
 
 @media (prefers-reduced-motion: reduce) {
@@ -1228,6 +1566,13 @@ a {
 
   .faq-item__button,
   .faq-item__answer {
+    transition: none;
+  }
+
+  .contact-info__calculator,
+  .contact-form__submit,
+  .contact-form input,
+  .contact-form textarea {
     transition: none;
   }
 }

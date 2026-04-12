@@ -483,6 +483,81 @@
     </div>
   </section>
 
+  <section class="contact-section" id="contato" aria-labelledby="contact-title">
+    <div class="contact-section__overlay" aria-hidden="true"></div>
+
+    <div class="contact-section__inner">
+      <aside class="contact-info" aria-labelledby="contact-title">
+        <h2 class="contact-info__title" id="contact-title">Contato</h2>
+
+        <address class="contact-info__list">
+          <div class="contact-info__item">
+            <img class="contact-info__icon" src="asset/icone local.png" alt="" aria-hidden="true">
+            <p>
+              <span>Rua Alegre, 123</span>
+              <span>Cidade Brasileira</span>
+            </p>
+          </div>
+
+          <a class="contact-info__item" href="https://wa.me/551234567890" target="_blank" rel="noopener noreferrer">
+            <img class="contact-info__icon" src="asset/icone whatsapp.png" alt="" aria-hidden="true">
+            <span>(12) 3456-7890</span>
+          </a>
+
+          <a class="contact-info__item" href="mailto:site@site.com.br">
+            <img class="contact-info__icon" src="asset/icone email.png" alt="" aria-hidden="true">
+            <span>site@site.com.br</span>
+          </a>
+
+          <a class="contact-info__item" href="https://www.instagram.com/" target="_blank" rel="noopener noreferrer">
+            <img class="contact-info__icon" src="asset/icone instagram.png" alt="" aria-hidden="true">
+            <span>Instagram pessoal</span>
+          </a>
+        </address>
+
+        <a class="contact-info__calculator" href="https://calculoexato.com.br/submenu.aspx?codMenu=Trab" target="_blank" rel="noopener noreferrer">
+          CALCULADORA DE VERBAS TRABALHISTAS
+        </a>
+      </aside>
+
+      <div class="contact-form-area">
+        <h2 class="contact-form-area__title">Fale conosco</h2>
+
+        <form class="contact-form" novalidate data-google-sheets-ready="true">
+          <div class="contact-form__grid">
+            <label class="contact-form__field">
+              <span>Nome</span>
+              <input type="text" name="name" placeholder="Nome" autocomplete="name" required>
+            </label>
+
+            <label class="contact-form__field">
+              <span>E-mail</span>
+              <input type="email" name="email" placeholder="E-mail" autocomplete="email" required>
+            </label>
+
+            <label class="contact-form__field">
+              <span>Telefone</span>
+              <input type="tel" name="phone" placeholder="Telefone" autocomplete="tel" required>
+            </label>
+
+            <label class="contact-form__field">
+              <span>Assunto</span>
+              <input type="text" name="subject" placeholder="Assunto" required>
+            </label>
+          </div>
+
+          <label class="contact-form__field contact-form__field--message">
+            <span>Mensagem</span>
+            <textarea name="message" placeholder="Mensagem" required></textarea>
+          </label>
+
+          <button class="contact-form__submit" type="submit">ENVIAR</button>
+          <p class="contact-form__feedback" role="status" aria-live="polite"></p>
+        </form>
+      </div>
+    </div>
+  </section>
+
   <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js"></script>
   <script src="script.js"></script>
