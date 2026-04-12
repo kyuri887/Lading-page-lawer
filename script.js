@@ -90,3 +90,57 @@
   fallbackObserver.observe(firstProfile);
   fallbackObserver.observe(secondProfile);
 })();
+
+(() => {
+  const faqSection = document.querySelector(".faq-section");
+
+  if (!faqSection) {
+    return;
+  }
+
+  const faqItems = Array.from(faqSection.querySelectorAll(".faq-item"));
+
+  const closeItem = (item) => {
+    const button = item.querySelector(".faq-item__button");
+
+    item.classList.remove("is-open");
+
+    if (button) {
+      button.setAttribute("aria-expanded", "false");
+    }
+  };
+
+  const openItem = (item) => {
+    const button = item.querySelector(".faq-item__button");
+
+    faqItems.forEach((currentItem) => {
+      if (currentItem !== item) {
+        closeItem(currentItem);
+      }
+    });
+
+    item.classList.add("is-open");
+
+    if (button) {
+      button.setAttribute("aria-expanded", "true");
+    }
+  };
+
+  faqItems.forEach((item) => {
+    const questionRow = item.querySelector(".faq-item__question-row");
+    const button = item.querySelector(".faq-item__button");
+
+    if (!questionRow || !button) {
+      return;
+    }
+
+    questionRow.addEventListener("click", () => {
+      if (item.classList.contains("is-open")) {
+        closeItem(item);
+        return;
+      }
+
+      openItem(item);
+    });
+  });
+})();
