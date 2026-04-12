@@ -1021,6 +1021,32 @@ a {
   color: #cdad7d;
 }
 
+.site-copyright {
+  width: 100%;
+  padding: 42px 24px;
+  background: #192b24;
+}
+
+.site-copyright__inner {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: min(1180px, 100%);
+  margin: 0 auto;
+  text-align: center;
+}
+
+.site-copyright p {
+  margin: 0;
+  font-family: "Libre Baskerville", serif;
+  font-size: 9.9px;
+  line-height: 1.45;
+  font-style: italic;
+  font-weight: 400;
+  letter-spacing: 0.02em;
+  color: #cdad7d;
+}
+
 @media (max-width: 1120px) {
   .labor-law__inner {
     width: min(840px, 100%);
@@ -1549,6 +1575,10 @@ a {
     width: min(255px, 100%);
     min-height: 46px;
     margin-top: 16px;
+  }
+
+  .site-copyright {
+    padding: 34px 18px;
   }
 }
 
