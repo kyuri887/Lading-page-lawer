@@ -261,6 +261,7 @@ a {
 .lawyer-profile__media {
   margin: 0;
   width: 100%;
+  will-change: transform, opacity;
 }
 
 .lawyer-profile__media img {
@@ -617,5 +618,13 @@ a {
 
   .client-testimonials__metrics p {
     font-size: 30px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .lawyer-profile__media {
+    opacity: 1;
+    transform: none;
+    transition: none;
   }
 }
