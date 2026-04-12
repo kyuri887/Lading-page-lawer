@@ -90,3 +90,31 @@
   fallbackObserver.observe(firstProfile);
   fallbackObserver.observe(secondProfile);
 })();
+
+(() => {
+  const laborButtons = document.querySelectorAll(".labor-law .labor-card__button, .labor-law .labor-law__more");
+
+  laborButtons.forEach((button) => {
+    button.addEventListener("click", (event) => {
+      event.preventDefault();
+
+      if (button.classList.contains("is-jumping")) {
+        return;
+      }
+
+      button.classList.add("is-jumping");
+      button.setAttribute("aria-busy", "true");
+
+      window.setTimeout(() => {
+        button.classList.remove("is-jumping");
+        button.removeAttribute("aria-busy");
+        if (button.target === "_blank") {
+          window.open(button.href, "_blank", "noopener,noreferrer");
+          return;
+        }
+
+        window.location.href = button.href;
+      }, 3000);
+    });
+  });
+})();
