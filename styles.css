@@ -24,9 +24,26 @@ a {
   text-decoration: none;
 }
 
+.hero,
+.about-history,
+.client-testimonials,
+.labor-law,
+.faq-section,
+.contact-section {
+  min-height: 100svh;
+}
+
+.about-history,
+.client-testimonials,
+.labor-law,
+.faq-section,
+.contact-section {
+  display: flex;
+  align-items: center;
+}
+
 .hero {
   position: relative;
-  min-height: 100vh;
   padding: 34px 64px 56px;
   display: flex;
   flex-direction: column;
@@ -692,7 +709,6 @@ a {
   position: relative;
   overflow: hidden;
   width: 100%;
-  min-height: 720px;
   padding: 74px 32px 94px;
   background: #eeead6;
   color: #222344;
@@ -848,7 +864,6 @@ a {
   position: relative;
   overflow: hidden;
   width: 100%;
-  min-height: 754px;
   padding: 70px 76px 92px;
   background-image: url("asset/foto fundo sessão 6.jfif");
   background-position: center;
