@@ -1107,6 +1107,49 @@ a {
   color: #cdad7d;
 }
 
+.floating-whatsapp {
+  position: fixed;
+  right: 28px;
+  bottom: 28px;
+  z-index: 30;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 58px;
+  height: 58px;
+  border-radius: 50%;
+  background: rgba(25, 43, 36, 0.88);
+  box-shadow: 0 12px 28px rgba(0, 0, 0, 0.24);
+  transition:
+    transform 220ms ease,
+    background-color 220ms ease,
+    box-shadow 220ms ease;
+}
+
+.floating-whatsapp img {
+  display: block;
+  width: 34px;
+  height: 34px;
+  object-fit: contain;
+  filter: brightness(0) saturate(100%) invert(72%) sepia(28%) saturate(898%) hue-rotate(78deg) brightness(91%) contrast(91%);
+}
+
+.floating-whatsapp:hover,
+.floating-whatsapp:focus-visible {
+  transform: translateY(-3px) scale(1.04);
+  background: rgba(25, 43, 36, 0.96);
+  box-shadow: 0 16px 32px rgba(0, 0, 0, 0.3);
+}
+
+.floating-whatsapp:active {
+  transform: translateY(0) scale(0.96);
+}
+
+.floating-whatsapp:focus-visible {
+  outline: 2px solid #65cf72;
+  outline-offset: 4px;
+}
+
 @media (max-width: 1120px) {
   .labor-law__inner {
     width: min(840px, 100%);
@@ -1681,6 +1724,18 @@ a {
   .site-copyright {
     padding: 34px 18px;
   }
+
+  .floating-whatsapp {
+    right: 18px;
+    bottom: 18px;
+    width: 52px;
+    height: 52px;
+  }
+
+  .floating-whatsapp img {
+    width: 31px;
+    height: 31px;
+  }
 }
 
 @media (prefers-reduced-motion: reduce) {
@@ -1708,6 +1763,10 @@ a {
   .contact-form__submit,
   .contact-form input,
   .contact-form textarea {
+    transition: none;
+  }
+
+  .floating-whatsapp {
     transition: none;
   }
 }
