@@ -1456,6 +1456,8 @@ a {
 
   .hero__brand {
     flex: 0 0 auto;
+    justify-content: center;
+    width: 100%;
   }
 
   .hero__brand img {
@@ -1493,6 +1495,7 @@ a {
   .hero__header.is-fixed .hero__brand {
     flex-basis: auto;
     min-width: 0;
+    width: 100%;
   }
 
   .hero__header.is-fixed .hero__brand img {
@@ -1521,6 +1524,10 @@ a {
 
   .about-history {
     padding: 52px 18px 64px;
+  }
+
+  .about-history__watermark {
+    display: none;
   }
 
   .about-history__title {
