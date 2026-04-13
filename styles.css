@@ -885,16 +885,22 @@ a {
   z-index: 1;
   display: grid;
   grid-template-columns: 330px minmax(0, 546px);
+  grid-template-areas:
+    "info form"
+    "calculator form";
+  grid-template-rows: auto 1fr;
   justify-content: space-between;
-  gap: clamp(64px, 12vw, 226px);
+  column-gap: clamp(64px, 12vw, 226px);
+  row-gap: 24px;
   width: min(1204px, 100%);
   min-height: 592px;
   margin: 0 auto;
 }
 
 .contact-info {
+  grid-area: info;
   display: flex;
-  min-height: 592px;
+  min-height: 0;
   flex-direction: column;
 }
 
@@ -963,8 +969,9 @@ a {
 }
 
 .contact-info__calculator {
+  grid-area: calculator;
+  align-self: end;
   width: 326px;
-  margin-top: auto;
   padding: 10px 18px;
 }
 
@@ -983,6 +990,7 @@ a {
 }
 
 .contact-form-area {
+  grid-area: form;
   width: min(546px, 100%);
 }
 
@@ -1192,7 +1200,10 @@ a {
 
   .contact-section__inner {
     grid-template-columns: 300px minmax(0, 546px);
-    gap: 56px;
+    grid-template-areas:
+      "info form"
+      "calculator form";
+    column-gap: 56px;
   }
 
   .contact-info__calculator {
@@ -1358,7 +1369,7 @@ a {
   }
 
   .faq-section {
-    min-height: auto;
+    min-height: 100svh;
     padding: 64px 24px 76px;
   }
 
@@ -1391,13 +1402,19 @@ a {
   }
 
   .contact-section {
-    min-height: auto;
+    min-height: 100svh;
     padding: 64px 24px 72px;
   }
 
   .contact-section__inner {
     grid-template-columns: 1fr;
-    gap: 58px;
+    grid-template-areas:
+      "info"
+      "form"
+      "calculator";
+    grid-template-rows: auto;
+    row-gap: 58px;
+    column-gap: 0;
     min-height: auto;
   }
 
@@ -1412,7 +1429,7 @@ a {
 
   .contact-info__calculator {
     width: min(326px, 100%);
-    margin-top: 48px;
+    margin-top: -18px;
   }
 
   .contact-form-area {
@@ -1431,23 +1448,28 @@ a {
   }
 
   .hero__header {
-    align-items: flex-start;
-    overflow: hidden;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    overflow: visible;
   }
 
   .hero__brand {
-    flex-basis: 132px;
+    flex: 0 0 auto;
   }
 
   .hero__brand img {
-    max-width: 132px;
-    min-width: 132px;
+    max-width: 112px;
+    min-width: 112px;
   }
 
   .hero__nav {
-    overflow-x: auto;
-    overscroll-behavior-inline: contain;
-    scrollbar-width: none;
+    width: 100%;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 9px 14px;
+    overflow: visible;
+    padding-top: 0;
   }
 
   .hero__nav::-webkit-scrollbar {
@@ -1455,32 +1477,32 @@ a {
   }
 
   .hero__nav a {
-    font-size: 13px;
-    letter-spacing: 0.08em;
+    font-size: 11px;
+    letter-spacing: 0.07em;
   }
 
   .hero__header.is-fixed {
     top: 0;
     right: 0;
     left: 0;
-    gap: 12px;
-    padding: 10px 12px;
+    gap: 8px;
+    padding: 9px 12px 11px;
     align-items: center;
   }
 
   .hero__header.is-fixed .hero__brand {
-    flex-basis: 104px;
-    min-width: 104px;
+    flex-basis: auto;
+    min-width: 0;
   }
 
   .hero__header.is-fixed .hero__brand img {
-    max-width: 104px;
-    min-width: 104px;
+    max-width: 88px;
+    min-width: 88px;
   }
 
   .hero__header.is-fixed .hero__nav a {
-    font-size: 12px;
-    letter-spacing: 0.06em;
+    font-size: 10px;
+    letter-spacing: 0.055em;
   }
 
   .hero h1 {
@@ -1510,12 +1532,18 @@ a {
     margin-top: 58px;
   }
 
+  .lawyer-profile__content {
+    display: contents;
+  }
+
   .lawyer-profile__name {
+    order: 1;
     font-size: 34px;
     margin-bottom: 20px;
   }
 
   .lawyer-profile__text {
+    order: 3;
     font-size: 18.6px;
     line-height: 1.68;
     text-align: left;
@@ -1527,6 +1555,11 @@ a {
 
   .lawyer-profile__media img {
     aspect-ratio: 0.78;
+  }
+
+  .lawyer-profile__media,
+  .lawyer-profile--image-left .lawyer-profile__media {
+    order: 2;
   }
 
   .client-testimonials {
@@ -1576,9 +1609,7 @@ a {
   }
 
   .labor-law__watermark {
-    background-position: center 44%;
-    background-size: min(420px, 118vw);
-    opacity: 0.26;
+    display: none;
   }
 
   .labor-law__title {
@@ -1707,7 +1738,7 @@ a {
 
   .contact-info__calculator {
     min-height: 48px;
-    margin-top: 42px;
+    margin-top: -34px;
     font-size: 11px;
   }
 
