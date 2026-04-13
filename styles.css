@@ -62,6 +62,51 @@ a {
   justify-content: space-between;
   gap: 24px;
   min-width: 0;
+  transition:
+    opacity 240ms ease,
+    transform 240ms ease,
+    background-color 240ms ease,
+    backdrop-filter 240ms ease;
+}
+
+.hero__header.is-fixed {
+  position: fixed;
+  top: 0;
+  right: 0;
+  left: 0;
+  z-index: 20;
+  align-items: center;
+  padding: 14px 64px;
+  border-radius: 0;
+  background: rgba(205, 173, 125, 0.29);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+}
+
+.hero__header.is-hidden {
+  opacity: 0;
+  transform: translateY(-140%);
+  pointer-events: none;
+}
+
+.hero__header.is-fixed .hero__brand {
+  flex-basis: 180px;
+  min-width: 120px;
+}
+
+.hero__header.is-fixed .hero__brand img {
+  max-width: 180px;
+  min-width: 120px;
+}
+
+.hero__header.is-fixed .hero__nav {
+  align-items: center;
+  padding-top: 0;
+}
+
+.hero__header.is-fixed .hero__nav a {
+  color: #eeead6;
+  text-shadow: 0 1px 8px rgba(25, 43, 36, 0.32);
 }
 
 .hero__brand {
@@ -1108,6 +1153,23 @@ a {
     letter-spacing: 0.12em;
   }
 
+  .hero__header.is-fixed {
+    top: 0;
+    right: 0;
+    left: 0;
+    padding: 12px 24px;
+  }
+
+  .hero__header.is-fixed .hero__brand {
+    flex-basis: 150px;
+    min-width: 110px;
+  }
+
+  .hero__header.is-fixed .hero__brand img {
+    max-width: 150px;
+    min-width: 110px;
+  }
+
   .hero__content {
     max-width: 100%;
     padding-top: 32px;
@@ -1322,6 +1384,30 @@ a {
   .hero__nav a {
     font-size: 13px;
     letter-spacing: 0.08em;
+  }
+
+  .hero__header.is-fixed {
+    top: 0;
+    right: 0;
+    left: 0;
+    gap: 12px;
+    padding: 10px 12px;
+    align-items: center;
+  }
+
+  .hero__header.is-fixed .hero__brand {
+    flex-basis: 104px;
+    min-width: 104px;
+  }
+
+  .hero__header.is-fixed .hero__brand img {
+    max-width: 104px;
+    min-width: 104px;
+  }
+
+  .hero__header.is-fixed .hero__nav a {
+    font-size: 12px;
+    letter-spacing: 0.06em;
   }
 
   .hero h1 {
@@ -1586,6 +1672,10 @@ a {
   .lawyer-profile__media {
     opacity: 1;
     transform: none;
+    transition: none;
+  }
+
+  .hero__header {
     transition: none;
   }
 

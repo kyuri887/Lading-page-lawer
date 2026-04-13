@@ -1,4 +1,57 @@
 (() => {
+  const header = document.querySelector(".hero__header");
+  const hero = document.querySelector(".hero");
+
+  if (!header || !hero) {
+    return;
+  }
+
+  let lastScrollY = window.scrollY;
+  let ticking = false;
+
+  const getHeroLimit = () => hero.offsetTop + hero.offsetHeight - 1;
+
+  const updateHeader = () => {
+    const currentScrollY = Math.max(window.scrollY, 0);
+    const isHeroSection = currentScrollY <= getHeroLimit();
+    const isScrollingUp = currentScrollY < lastScrollY - 6;
+    const isScrollingDown = currentScrollY > lastScrollY + 6;
+
+    if (isHeroSection) {
+      header.classList.remove("is-fixed", "is-hidden");
+      lastScrollY = currentScrollY;
+      ticking = false;
+      return;
+    }
+
+    if (isScrollingUp) {
+      header.classList.add("is-fixed");
+      header.classList.remove("is-hidden");
+    }
+
+    if (isScrollingDown) {
+      header.classList.add("is-fixed", "is-hidden");
+    }
+
+    lastScrollY = currentScrollY;
+    ticking = false;
+  };
+
+  const requestHeaderUpdate = () => {
+    if (ticking) {
+      return;
+    }
+
+    ticking = true;
+    window.requestAnimationFrame(updateHeader);
+  };
+
+  updateHeader();
+  window.addEventListener("scroll", requestHeaderUpdate, { passive: true });
+  window.addEventListener("resize", requestHeaderUpdate);
+})();
+
+(() => {
   const aboutSection = document.querySelector(".about-history");
   const rightPhoto = document.querySelector(".lawyer-profile__photo--from-right");
   const leftPhoto = document.querySelector(".lawyer-profile__photo--from-left");
