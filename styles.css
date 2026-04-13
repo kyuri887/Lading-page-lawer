@@ -66,6 +66,7 @@ a {
     opacity 240ms ease,
     transform 240ms ease,
     background-color 240ms ease,
+    box-shadow 240ms ease,
     backdrop-filter 240ms ease;
 }
 
@@ -78,9 +79,18 @@ a {
   align-items: center;
   padding: 14px 64px;
   border-radius: 0;
-  background: rgba(205, 173, 125, 0.29);
   backdrop-filter: blur(12px);
   -webkit-backdrop-filter: blur(12px);
+}
+
+.hero__header.is-fixed.is-over-dark {
+  background: rgba(205, 173, 125, 0.29);
+  box-shadow: 0 12px 26px rgba(0, 0, 0, 0.16);
+}
+
+.hero__header.is-fixed.is-over-light {
+  background: rgba(25, 43, 36, 0.86);
+  box-shadow: 0 12px 26px rgba(25, 43, 36, 0.16);
 }
 
 .hero__header.is-hidden {
@@ -104,9 +114,14 @@ a {
   padding-top: 0;
 }
 
-.hero__header.is-fixed .hero__nav a {
+.hero__header.is-fixed.is-over-dark .hero__nav a {
   color: #eeead6;
   text-shadow: 0 1px 8px rgba(25, 43, 36, 0.32);
+}
+
+.hero__header.is-fixed.is-over-light .hero__nav a {
+  color: #cdad7d;
+  text-shadow: none;
 }
 
 .hero__brand {

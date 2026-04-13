@@ -8,8 +8,30 @@
 
   let lastScrollY = window.scrollY;
   let ticking = false;
+  const lightSectionIds = new Set(["sobre", "duvidas"]);
 
   const getHeroLimit = () => hero.offsetTop + hero.offsetHeight - 1;
+
+  const getCurrentSection = (currentScrollY) => {
+    const headerHeight = header.classList.contains("is-fixed") ? header.offsetHeight : 0;
+    const checkPoint = currentScrollY + headerHeight + 24;
+    const sections = Array.from(document.querySelectorAll("section[id]"));
+
+    return sections.find((section) => {
+      const sectionTop = section.offsetTop;
+      const sectionBottom = sectionTop + section.offsetHeight;
+
+      return checkPoint >= sectionTop && checkPoint < sectionBottom;
+    });
+  };
+
+  const updateHeaderContrast = (currentScrollY) => {
+    const currentSection = getCurrentSection(currentScrollY);
+    const isLightSection = currentSection && lightSectionIds.has(currentSection.id);
+
+    header.classList.toggle("is-over-light", Boolean(isLightSection));
+    header.classList.toggle("is-over-dark", !isLightSection);
+  };
 
   const updateHeader = () => {
     const currentScrollY = Math.max(window.scrollY, 0);
@@ -18,7 +40,7 @@
     const isScrollingDown = currentScrollY > lastScrollY + 6;
 
     if (isHeroSection) {
-      header.classList.remove("is-fixed", "is-hidden");
+      header.classList.remove("is-fixed", "is-hidden", "is-over-light", "is-over-dark");
       lastScrollY = currentScrollY;
       ticking = false;
       return;
@@ -27,10 +49,12 @@
     if (isScrollingUp) {
       header.classList.add("is-fixed");
       header.classList.remove("is-hidden");
+      updateHeaderContrast(currentScrollY);
     }
 
     if (isScrollingDown) {
       header.classList.add("is-fixed", "is-hidden");
+      updateHeaderContrast(currentScrollY);
     }
 
     lastScrollY = currentScrollY;
