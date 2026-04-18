@@ -10,7 +10,10 @@
   let ticking = false;
   const lightSectionIds = new Set(["sobre", "duvidas"]);
 
-  const getHeroLimit = () => hero.offsetTop + hero.offsetHeight - 1;
+  // Desativa o header flutuante apenas quando o scrollY está dentro
+  // da própria altura do header — ponto em que o header estático nativo
+  // já está visível no viewport, evitando qualquer zona sem header.
+  const getHeroLimit = () => header.offsetHeight;
 
   const getCurrentSection = (currentScrollY) => {
     const headerHeight = header.classList.contains("is-fixed") ? header.offsetHeight : 0;
@@ -73,6 +76,75 @@
   updateHeader();
   window.addEventListener("scroll", requestHeaderUpdate, { passive: true });
   window.addEventListener("resize", requestHeaderUpdate);
+})();
+
+// ─── Scrollspy: IntersectionObserver para estado ativo na navbar ──────────────
+(() => {
+  const navLinks = Array.from(document.querySelectorAll(".hero__nav a[href^='#']"));
+  const sections = Array.from(document.querySelectorAll("section[id]"));
+
+  if (!navLinks.length || !sections.length) {
+    return;
+  }
+
+  // Mapeia id da seção → link do nav correspondente
+  const linkMap = new Map();
+  navLinks.forEach((link) => {
+    const id = link.getAttribute("href").replace("#", "");
+    linkMap.set(id, link);
+  });
+
+  // Mantém o set de seções visíveis no viewport
+  const visibleSections = new Set();
+
+  const setActiveLink = () => {
+    // Encontra a seção visível mais próxima do topo da página
+    let topSection = null;
+    let topOffset = Infinity;
+
+    visibleSections.forEach((id) => {
+      const el = document.getElementById(id);
+      if (!el) return;
+      const rect = el.getBoundingClientRect();
+      if (rect.top < topOffset) {
+        topOffset = rect.top;
+        topSection = id;
+      }
+    });
+
+    // Remove active de todos e aplica no ativo
+    navLinks.forEach((link) => link.classList.remove("active"));
+
+    if (topSection && linkMap.has(topSection)) {
+      linkMap.get(topSection).classList.add("active");
+    }
+  };
+
+  const observer = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        const id = entry.target.id;
+        if (entry.isIntersecting) {
+          visibleSections.add(id);
+        } else {
+          visibleSections.delete(id);
+        }
+      });
+      setActiveLink();
+    },
+    {
+      // Considera visível quando pelo menos 12% da seção aparece na tela
+      threshold: 0.12,
+      // Desconta a altura aproximada do header fixo ao detectar a seção ativa
+      rootMargin: "-72px 0px 0px 0px"
+    }
+  );
+
+  sections.forEach((section) => {
+    if (linkMap.has(section.id)) {
+      observer.observe(section);
+    }
+  });
 })();
 
 (() => {
