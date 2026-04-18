@@ -371,17 +371,38 @@
 })();
 
 (() => {
+  const popupButton = document.querySelector("#calendly-popup-button");
   const schedule = document.querySelector("#calendly-schedule");
+  const calendlyElement = popupButton || schedule;
 
-  if (!schedule) {
+  if (!calendlyElement) {
     return;
   }
 
-  const calendlyUrl = schedule.dataset.calendlyUrl || "";
+  const calendlyUrl = calendlyElement.dataset.calendlyUrl || "";
   const isPlaceholderUrl = calendlyUrl.includes("seu-usuario");
 
   if (!calendlyUrl || isPlaceholderUrl) {
-    schedule.classList.add("is-missing-url");
+    calendlyElement.classList.add("is-missing-url");
+    return;
+  }
+
+  const waitForCalendly = (callback) => {
+    if (!window.Calendly) {
+      window.setTimeout(() => waitForCalendly(callback), 120);
+      return;
+    }
+
+    callback();
+  };
+
+  if (popupButton) {
+    popupButton.addEventListener("click", () => {
+      waitForCalendly(() => {
+        window.Calendly.initPopupWidget({ url: calendlyUrl });
+      });
+    });
+
     return;
   }
 
