@@ -1150,20 +1150,22 @@ a {
 }
 
 .calendly-popup-card__eyebrow {
-  margin: 0 0 12px;
+  margin: 0 0 28px;
   font-family: "Libre Baskerville", serif;
-  font-size: 18px;
-  line-height: 1.35;
-  font-style: italic;
+  font-size: 17px;
+  line-height: 1.45;
+  font-weight: 700;
+  letter-spacing: 0.08em;
   color: #cdad7d;
 }
 
 .calendly-popup-card__copy {
   max-width: 390px;
-  margin: 0 0 28px;
+  margin: -14px 0 28px;
   font-family: "Inter", sans-serif;
   font-size: 14px;
   line-height: 1.65;
+  font-style: italic;
   font-weight: 600;
   color: rgba(255, 255, 255, 0.88);
 }
@@ -2089,8 +2091,9 @@ a {
     padding: 30px 20px;
   }
 
-  .calendly-popup-card__copy {
-    font-size: 13.4px;
+  .calendly-popup-card__eyebrow {
+    margin-bottom: 24px;
+    font-size: 14px;
   }
 
   .calendly-popup-card__button {
