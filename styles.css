@@ -131,13 +131,13 @@ a {
 }
 
 .hero__header.is-fixed .hero__brand {
-  flex-basis: 220px;
-  min-width: 150px;
+  flex-basis: 260px;
+  min-width: 170px;
 }
 
 .hero__header.is-fixed .hero__brand img {
-  max-width: 220px;
-  min-width: 150px;
+  max-width: 260px;
+  min-width: 170px;
 }
 
 .hero__header.is-fixed .hero__nav {
@@ -170,14 +170,14 @@ a {
 .hero__brand {
   display: inline-flex;
   align-items: center;
-  flex: 0 1 340px;
-  min-width: 190px;
+  flex: 0 1 390px;
+  min-width: 220px;
 }
 
 .hero__brand img {
   width: 100%;
-  max-width: 340px;
-  min-width: 190px;
+  max-width: 390px;
+  min-width: 220px;
   height: auto;
   display: block;
 }
@@ -1357,8 +1357,8 @@ a {
   }
 
   .hero__brand img {
-    max-width: 300px;
-    min-width: 180px;
+    max-width: 340px;
+    min-width: 200px;
   }
 
   .hero__nav a {
@@ -1374,13 +1374,13 @@ a {
   }
 
   .hero__header.is-fixed .hero__brand {
-    flex-basis: 180px;
-    min-width: 130px;
+    flex-basis: 210px;
+    min-width: 150px;
   }
 
   .hero__header.is-fixed .hero__brand img {
-    max-width: 180px;
-    min-width: 130px;
+    max-width: 210px;
+    min-width: 150px;
   }
 
   .hero__content {
@@ -1618,8 +1618,8 @@ a {
   }
 
   .hero__brand img {
-    max-width: 140px;
-    min-width: 140px;
+    max-width: 162px;
+    min-width: 162px;
   }
 
   .hero__nav {
@@ -1656,8 +1656,8 @@ a {
   }
 
   .hero__header.is-fixed .hero__brand img {
-    max-width: 110px;
-    min-width: 110px;
+    max-width: 128px;
+    min-width: 128px;
   }
 
   .hero__header.is-fixed .hero__nav a {
