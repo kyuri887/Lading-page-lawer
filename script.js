@@ -299,6 +299,40 @@
 })();
 
 (() => {
+  const schedule = document.querySelector("#calendly-schedule");
+
+  if (!schedule) {
+    return;
+  }
+
+  const calendlyUrl = schedule.dataset.calendlyUrl || "";
+  const isPlaceholderUrl = calendlyUrl.includes("seu-usuario");
+
+  if (!calendlyUrl || isPlaceholderUrl) {
+    schedule.classList.add("is-missing-url");
+    return;
+  }
+
+  const initCalendly = () => {
+    if (!window.Calendly || typeof window.Calendly.initInlineWidget !== "function") {
+      window.setTimeout(initCalendly, 120);
+      return;
+    }
+
+    schedule.innerHTML = "";
+    schedule.classList.add("is-loaded");
+
+    window.Calendly.initInlineWidget({
+      url: calendlyUrl,
+      parentElement: schedule,
+      resize: false
+    });
+  };
+
+  initCalendly();
+})();
+
+(() => {
   const faqSection = document.querySelector(".faq-section");
 
   if (!faqSection) {
