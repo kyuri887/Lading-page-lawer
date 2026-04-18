@@ -1036,16 +1036,41 @@ a {
 }
 
 .contact-info__item {
-  display: grid;
-  grid-template-columns: 31px minmax(0, 1fr);
-  align-items: start;
-  gap: 15px;
-  min-height: 31px;
+  display: flex;
+  align-items: center;
+  gap: 14px;
   font-family: "Inter", sans-serif;
   font-size: 13.5px;
   line-height: 1.45;
   font-weight: 600;
   color: rgba(255, 255, 255, 0.94);
+  transition:
+    color 280ms cubic-bezier(0.25, 0.46, 0.45, 0.94),
+    transform 280ms cubic-bezier(0.25, 0.46, 0.45, 0.94),
+    opacity 280ms ease;
+}
+
+/* Endereço (item com bloco <p> de múltiplas linhas): ícone alinhado ao topo */
+.contact-info__item:has(p) {
+  align-items: flex-start;
+}
+
+/* Empurra o ícone ~3px para baixo para alinhar com a 1ª linha do texto */
+.contact-info__item:has(p) .contact-info__icon {
+  margin-top: 3px;
+}
+
+/* Hover apenas nos itens que são links (<a>) */
+a.contact-info__item:hover,
+a.contact-info__item:focus-visible {
+  color: #f0d7a9;
+  transform: translateX(6px);
+  opacity: 1;
+}
+
+a.contact-info__item:hover .contact-info__icon,
+a.contact-info__item:focus-visible .contact-info__icon {
+  filter: sepia(1) saturate(1.1) hue-rotate(356deg) brightness(1.15);
 }
 
 .contact-info__item p {
@@ -1056,10 +1081,12 @@ a {
 
 .contact-info__icon {
   display: block;
-  width: 26px;
-  height: 26px;
+  flex-shrink: 0;
+  width: 24px;
+  height: 24px;
   object-fit: contain;
   filter: sepia(1) saturate(0.7) hue-rotate(356deg) brightness(0.9);
+  transition: filter 280ms ease;
 }
 
 .contact-info__calculator,
