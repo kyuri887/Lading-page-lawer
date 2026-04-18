@@ -176,7 +176,7 @@ a {
 
 .hero__brand img {
   width: 100%;
-  max-width: 390px;
+  max-width: 270px;
   min-width: 220px;
   height: auto;
   display: block;
@@ -324,7 +324,8 @@ a {
   z-index: 0;
   opacity: 0.15;
   pointer-events: none;
-  background-image: url("asset/logo Jales e Ramos.png"); /* Imagem de fundo/overlay: troque este caminho se desejar */
+  background-image: url("asset/logo Jales e Ramos.png");
+  /* Imagem de fundo/overlay: troque este caminho se desejar */
   background-repeat: no-repeat;
   background-position: center 42%;
   background-size: min(620px, 72vw);
@@ -354,7 +355,7 @@ a {
   gap: clamp(48px, 7vw, 92px);
 }
 
-.lawyer-profile + .lawyer-profile {
+.lawyer-profile+.lawyer-profile {
   margin-top: 88px;
 }
 
@@ -392,7 +393,7 @@ a {
   margin: 0;
 }
 
-.lawyer-profile__text p + p {
+.lawyer-profile__text p+p {
   margin-top: 24px;
 }
 
@@ -416,7 +417,8 @@ a {
   overflow: hidden;
   width: 100%;
   padding: 72px 32px 68px;
-  background-image: url("asset/foto fundo seção 3.jfif.jpeg"); /* Imagem de fundo da seção de depoimentos */
+  background-image: url("asset/foto fundo seção 3.jfif.jpeg");
+  /* Imagem de fundo da seção de depoimentos */
   background-position: center;
   background-size: cover;
   background-repeat: no-repeat;
@@ -1102,7 +1104,7 @@ a {
   display: none;
 }
 
-.calendly-schedule > * {
+.calendly-schedule>* {
   position: relative;
   z-index: 1;
 }
@@ -1418,7 +1420,7 @@ a {
     gap: 30px;
   }
 
-  .lawyer-profile + .lawyer-profile {
+  .lawyer-profile+.lawyer-profile {
     margin-top: 68px;
   }
 
@@ -1692,7 +1694,7 @@ a {
     margin-bottom: 34px;
   }
 
-  .lawyer-profile + .lawyer-profile {
+  .lawyer-profile+.lawyer-profile {
     margin-top: 58px;
   }
 
@@ -1713,7 +1715,7 @@ a {
     text-align: left;
   }
 
-  .lawyer-profile__text p + p {
+  .lawyer-profile__text p+p {
     margin-top: 20px;
   }
 
