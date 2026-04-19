@@ -406,12 +406,7 @@
     return;
   }
 
-  const initCalendly = () => {
-    if (!window.Calendly || typeof window.Calendly.initInlineWidget !== "function") {
-      window.setTimeout(initCalendly, 120);
-      return;
-    }
-
+  waitForCalendly(() => {
     schedule.innerHTML = "";
     schedule.classList.add("is-loaded");
 
@@ -420,9 +415,7 @@
       parentElement: schedule,
       resize: false
     });
-  };
-
-  initCalendly();
+  });
 })();
 
 (() => {
