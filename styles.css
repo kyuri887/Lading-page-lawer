@@ -1176,6 +1176,11 @@ a.contact-info__item:focus-visible .contact-info__icon {
   backdrop-filter: blur(2px);
 }
 
+.contact-calculator-area,
+.contact-calculator-card {
+  display: none;
+}
+
 .calendly-popup-card__eyebrow {
   margin: 0 0 28px;
   font-family: "Libre Baskerville", serif;
@@ -1216,6 +1221,7 @@ a.contact-info__item:focus-visible .contact-info__icon {
   line-height: 1.2;
   font-weight: 700;
   letter-spacing: 0.08em;
+  text-align: center;
   color: #ffffff;
   cursor: pointer;
   box-shadow: 0 14px 26px rgba(0, 0, 0, 0.22);
@@ -1724,18 +1730,15 @@ a.contact-info__item:focus-visible .contact-info__icon {
   }
 
   .contact-section__inner {
-    grid-template-columns: 1fr;
-    grid-template-areas:
-      "info"
-      "form"
-      "calculator";
-    grid-template-rows: auto;
+    display: flex;
+    flex-direction: column;
     row-gap: 34px;
     column-gap: 0;
     min-height: auto;
   }
 
   .contact-info {
+    order: 3;
     min-height: auto;
     align-items: center;
     text-align: center;
@@ -1756,12 +1759,11 @@ a.contact-info__item:focus-visible .contact-info__icon {
   }
 
   .contact-info__calculator {
-    justify-self: center;
-    width: min(344px, 100%);
-    margin-top: 0;
+    display: none;
   }
 
   .contact-form-area {
+    order: 1;
     width: 100%;
   }
 
@@ -1775,10 +1777,40 @@ a.contact-info__item:focus-visible .contact-info__icon {
     margin-bottom: 22px;
   }
 
+  .contact-calculator-area {
+    order: 2;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+  }
+
   .calendly-popup-card {
     width: min(500px, 100%);
     margin-top: 10px;
     padding: 36px 28px;
+  }
+
+  .contact-schedule-card {
+    gap: 24px;
+    padding: 34px 28px;
+  }
+
+  .contact-schedule-card__eyebrow {
+    display: none;
+  }
+
+  .contact-schedule-card .calendly-popup-card__copy {
+    margin: 0;
+  }
+
+  .contact-calculator-card {
+    display: grid;
+    align-self: center;
+  }
+
+  .contact-calculator-card .calendly-popup-card__copy {
+    margin-top: 0;
   }
 
   .calendly-schedule {
@@ -1874,7 +1906,7 @@ a.contact-info__item:focus-visible .contact-info__icon {
   }
 
   .about-history {
-    padding: 52px 18px 64px;
+    padding: 52px 16px 64px;
   }
 
   .about-history__watermark {
@@ -1882,8 +1914,20 @@ a.contact-info__item:focus-visible .contact-info__icon {
   }
 
   .about-history__title {
-    font-size: 38px;
+    font-size: clamp(24px, 7.3vw, 30px);
+    line-height: 1.18;
     margin-bottom: 34px;
+    text-wrap: balance;
+  }
+
+  .client-testimonials__title,
+  .labor-law__title,
+  .faq-section__title,
+  .contact-info__title,
+  .contact-form-area__title {
+    font-size: clamp(24px, 7.3vw, 30px);
+    line-height: 1.18;
+    text-wrap: balance;
   }
 
   .lawyer-profile+.lawyer-profile {
@@ -1921,12 +1965,13 @@ a.contact-info__item:focus-visible .contact-info__icon {
   }
 
   .client-testimonials {
-    padding: 56px 18px 54px;
+    padding: 56px 16px 54px;
     background-position: center top;
   }
 
   .client-testimonials__title {
-    font-size: 38px;
+    margin-inline: auto;
+    max-width: 12ch;
   }
 
   .client-testimonials__subtitle {
@@ -1948,8 +1993,8 @@ a.contact-info__item:focus-visible .contact-info__icon {
 
   .client-testimonials__metrics {
     grid-template-columns: 1fr;
-    width: 100%;
-    gap: 18px;
+    width: min(100%, 340px);
+    gap: 14px;
     margin-top: 44px;
   }
 
@@ -1959,7 +2004,8 @@ a.contact-info__item:focus-visible .contact-info__icon {
   }
 
   .client-testimonials__metrics p {
-    font-size: 30px;
+    font-size: clamp(20px, 6vw, 26px);
+    line-height: 1.24;
   }
 
   .labor-law {
@@ -1971,7 +2017,7 @@ a.contact-info__item:focus-visible .contact-info__icon {
   }
 
   .labor-law__title {
-    font-size: 49px;
+    margin-inline: auto;
   }
 
   .labor-law__subtitle {
@@ -2030,7 +2076,6 @@ a.contact-info__item:focus-visible .contact-info__icon {
   }
 
   .faq-section__title {
-    font-size: 38px;
     letter-spacing: 0.1em;
   }
 
@@ -2078,7 +2123,6 @@ a.contact-info__item:focus-visible .contact-info__icon {
 
   .contact-info__title {
     margin-bottom: 22px;
-    font-size: 32px;
   }
 
   .contact-info__list {
@@ -2104,7 +2148,6 @@ a.contact-info__item:focus-visible .contact-info__icon {
 
   .contact-form-area__title {
     margin-bottom: 12px;
-    font-size: 32px;
   }
 
   .contact-form-area__text {
@@ -2115,6 +2158,11 @@ a.contact-info__item:focus-visible .contact-info__icon {
 
   .calendly-popup-card {
     width: 100%;
+    padding: 30px 20px;
+  }
+
+  .contact-schedule-card {
+    gap: 22px;
     padding: 30px 20px;
   }
 
