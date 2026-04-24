@@ -507,16 +507,22 @@
 
   const closeItem = (item) => {
     const button = item.querySelector(".faq-item__button");
+    const answer = item.querySelector(".faq-item__answer");
 
     item.classList.remove("is-open");
 
     if (button) {
       button.setAttribute("aria-expanded", "false");
     }
+
+    if (answer) {
+      answer.hidden = true;
+    }
   };
 
   const openItem = (item) => {
     const button = item.querySelector(".faq-item__button");
+    const answer = item.querySelector(".faq-item__answer");
 
     faqItems.forEach((currentItem) => {
       if (currentItem !== item) {
@@ -529,17 +535,31 @@
     if (button) {
       button.setAttribute("aria-expanded", "true");
     }
+
+    if (answer) {
+      answer.hidden = false;
+    }
   };
 
   faqItems.forEach((item) => {
-    const questionRow = item.querySelector(".faq-item__question-row");
     const button = item.querySelector(".faq-item__button");
+    const answer = item.querySelector(".faq-item__answer");
+    const question = item.querySelector(".faq-item__question");
 
-    if (!questionRow || !button) {
+    if (!button || !answer || !question) {
       return;
     }
 
-    questionRow.addEventListener("click", () => {
+    if (!button.id) {
+      button.id = `faq-toggle-${answer.id || Math.random().toString(36).slice(2, 8)}`;
+    }
+
+    button.setAttribute("aria-label", `Alternar resposta: ${question.textContent.trim()}`);
+    answer.setAttribute("role", "region");
+    answer.setAttribute("aria-labelledby", button.id);
+    answer.hidden = true;
+
+    button.addEventListener("click", () => {
       if (item.classList.contains("is-open")) {
         closeItem(item);
         return;
