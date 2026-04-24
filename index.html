@@ -11,7 +11,7 @@
     href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Libre+Baskerville:wght@400;700&display=swap"
     rel="stylesheet">
   <link href="https://assets.calendly.com/assets/external/widget.css" rel="stylesheet">
-  <link rel="stylesheet" href="styles.css?v=20260418-26">
+  <link rel="stylesheet" href="styles.css?v=20260424-29">
 </head>
 
 <body>
@@ -21,6 +21,7 @@
         <img src="Logo part1.png" alt="Logo Jales e Ramos Advogados">
       </a>
 
+      <!-- Menu desktop (visível apenas em telas ≥ 1024px) -->
       <nav class="hero__nav" aria-label="Menu principal">
         <a href="#home">HOME</a>
         <a href="#sobre">SOBRE NÓS</a>
@@ -29,7 +30,37 @@
         <a href="#duvidas">DÚVIDAS</a>
         <a href="#contato">CONTATO</a>
       </nav>
+
+      <!-- Botão hambúrguer (visível apenas em telas < 1024px) -->
+      <button class="hero__hamburger" id="hamburger-btn" type="button" aria-label="Abrir menu de navegação"
+        aria-expanded="false" aria-controls="mobile-drawer">
+        <span class="hero__hamburger-bar"></span>
+        <span class="hero__hamburger-bar"></span>
+        <span class="hero__hamburger-bar"></span>
+      </button>
     </header>
+
+    <!-- Overlay escuro (fecha o drawer ao clicar fora) -->
+    <div class="mobile-overlay" id="mobile-overlay" aria-hidden="true"></div>
+
+    <!-- Drawer lateral mobile/tablet -->
+    <nav class="mobile-drawer" id="mobile-drawer" aria-label="Menu de navegação mobile" aria-hidden="true">
+      <div class="mobile-drawer__header">
+        <img src="Logo part1.png" alt="Jales e Ramos Advogados" class="mobile-drawer__logo">
+        <button class="mobile-drawer__close" id="drawer-close-btn" type="button" aria-label="Fechar menu">
+          <span></span>
+          <span></span>
+        </button>
+      </div>
+      <ul class="mobile-drawer__links">
+        <li><a href="#home">HOME</a></li>
+        <li><a href="#sobre">SOBRE NÓS</a></li>
+        <li><a href="#depoimentos">DEPOIMENTOS</a></li>
+        <li><a href="#direito">DIREITO</a></li>
+        <li><a href="#duvidas">DÚVIDAS</a></li>
+        <li><a href="#contato">CONTATO</a></li>
+      </ul>
+    </nav>
 
     <div class="hero__content">
       <h1>
@@ -784,7 +815,7 @@
   <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js"></script>
   <script src="https://assets.calendly.com/assets/external/widget.js" type="text/javascript" async></script>
-  <script src="script.js?v=20260418-25"></script>
+  <script src="script.js?v=20260424-27"></script>
 </body>
 
 </html>

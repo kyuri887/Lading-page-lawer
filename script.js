@@ -1,3 +1,78 @@
+// ─── Drawer mobile/tablet ─────────────────────────────────────────────────────
+(() => {
+  const hamburger = document.getElementById("hamburger-btn");
+  const drawer    = document.getElementById("mobile-drawer");
+  const overlay   = document.getElementById("mobile-overlay");
+  const closeBtn  = document.getElementById("drawer-close-btn");
+  const drawerLinks = drawer ? Array.from(drawer.querySelectorAll("a")) : [];
+
+  if (!hamburger || !drawer || !overlay) return;
+
+  const DESKTOP_BP = 1200; // px — deve coincidir com o breakpoint do CSS
+
+  let isOpen = false;
+
+  const openDrawer = () => {
+    isOpen = true;
+    drawer.classList.add("is-open");
+    drawer.setAttribute("aria-hidden", "false");
+    overlay.classList.add("is-visible");
+    hamburger.classList.add("is-open");
+    hamburger.setAttribute("aria-expanded", "true");
+    hamburger.setAttribute("aria-label", "Fechar menu de navegação");
+    document.body.style.overflow = "hidden"; // trava scroll do fundo
+  };
+
+  const closeDrawer = () => {
+    isOpen = false;
+    drawer.classList.remove("is-open");
+    drawer.setAttribute("aria-hidden", "true");
+    overlay.classList.remove("is-visible");
+    hamburger.classList.remove("is-open");
+    hamburger.setAttribute("aria-expanded", "false");
+    hamburger.setAttribute("aria-label", "Abrir menu de navegação");
+    document.body.style.overflow = "";
+  };
+
+  const toggleDrawer = () => (isOpen ? closeDrawer() : openDrawer());
+
+  // Abre/fecha ao clicar no hambúrguer
+  hamburger.addEventListener("click", toggleDrawer);
+
+  // Fecha ao clicar no overlay
+  overlay.addEventListener("click", closeDrawer);
+
+  // Fecha ao clicar no botão X
+  if (closeBtn) closeBtn.addEventListener("click", closeDrawer);
+
+  // Fecha ao clicar em qualquer link do drawer
+  drawerLinks.forEach((link) => {
+    link.addEventListener("click", () => {
+      // Pequeno delay para o scroll suave começar antes de fechar
+      setTimeout(closeDrawer, 80);
+    });
+  });
+
+  // Fecha ao pressionar Escape
+  document.addEventListener("keydown", (e) => {
+    if (e.key === "Escape" && isOpen) closeDrawer();
+  });
+
+  // Se a tela for alargada para desktop, fecha o drawer automaticamente
+  const mediaQuery = window.matchMedia(`(min-width: ${DESKTOP_BP + 1}px)`);
+  const handleResize = (mq) => {
+    if (mq.matches && isOpen) closeDrawer();
+  };
+
+  if (mediaQuery.addEventListener) {
+    mediaQuery.addEventListener("change", handleResize);
+  } else {
+    // Fallback para Safari < 14
+    mediaQuery.addListener(handleResize);
+  }
+})();
+
+// ─── Header scroll / sticky ───────────────────────────────────────────────────
 (() => {
   const header = document.querySelector(".hero__header");
   const hero = document.querySelector(".hero");
@@ -80,18 +155,21 @@
 
 // ─── Scrollspy: IntersectionObserver para estado ativo na navbar ──────────────
 (() => {
-  const navLinks = Array.from(document.querySelectorAll(".hero__nav a[href^='#']"));
-  const sections = Array.from(document.querySelectorAll("section[id]"));
+  const navLinks    = Array.from(document.querySelectorAll(".hero__nav a[href^='#']"));
+  const drawerLinks = Array.from(document.querySelectorAll(".mobile-drawer__links a[href^='#']"));
+  const allNavLinks = [...navLinks, ...drawerLinks];
+  const sections    = Array.from(document.querySelectorAll("section[id]"));
 
-  if (!navLinks.length || !sections.length) {
+  if (!allNavLinks.length || !sections.length) {
     return;
   }
 
-  // Mapeia id da seção → link do nav correspondente
+  // Mapeia id da seção → todos os links correspondentes (desktop + drawer)
   const linkMap = new Map();
-  navLinks.forEach((link) => {
+  allNavLinks.forEach((link) => {
     const id = link.getAttribute("href").replace("#", "");
-    linkMap.set(id, link);
+    if (!linkMap.has(id)) linkMap.set(id, []);
+    linkMap.get(id).push(link);
   });
 
   // Mantém o set de seções visíveis no viewport
@@ -113,10 +191,10 @@
     });
 
     // Remove active de todos e aplica no ativo
-    navLinks.forEach((link) => link.classList.remove("active"));
+    allNavLinks.forEach((link) => link.classList.remove("active"));
 
     if (topSection && linkMap.has(topSection)) {
-      linkMap.get(topSection).classList.add("active");
+      linkMap.get(topSection).forEach((link) => link.classList.add("active"));
     }
   };
 
