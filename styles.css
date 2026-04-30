@@ -57,12 +57,6 @@ section[id] {
   outline-offset: 3px;
 }
 
-body::-webkit-scrollbar {
-  display: none;
-  width: 0;
-  height: 0;
-}
-
 a {
   color: inherit;
   text-decoration: none;
@@ -608,7 +602,6 @@ a {
   opacity: 0.15;
   pointer-events: none;
   background-image: url("asset/logo Jales e Ramos.png");
-  /* Imagem de fundo/overlay: troque este caminho se desejar */
   background-repeat: no-repeat;
   background-position: center 42%;
   background-size: min(620px, 72vw);
@@ -628,6 +621,7 @@ a {
   font-size: 38px;
   line-height: 1.2;
   font-weight: 400;
+  font-style: italic;
   color: #cdad7d;
 }
 
@@ -1059,9 +1053,9 @@ a {
   color: #f4f1ec;
   box-shadow: 0 10px 22px rgba(0, 0, 0, 0.18);
   transition:
-    transform 5s ease,
-    background-color 5s ease,
-    box-shadow 5s ease;
+    transform 220ms ease,
+    background-color 220ms ease,
+    box-shadow 220ms ease;
 }
 
 .labor-law__more::after {
@@ -1071,7 +1065,7 @@ a {
   background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.22), transparent);
   opacity: 0;
   transform: translateX(-100%);
-  transition: transform 5s ease, opacity 5s ease;
+  transition: transform 650ms ease, opacity 220ms ease;
 }
 
 .labor-law__more:hover,
@@ -1369,8 +1363,7 @@ a.contact-info__item:focus-visible .contact-info__icon {
   transition: filter 280ms ease;
 }
 
-.contact-info__calculator,
-.contact-form__submit {
+.contact-info__calculator {
   display: inline-flex;
   align-items: center;
   justify-content: center;
@@ -1414,15 +1407,12 @@ a.contact-info__item:focus-visible .contact-info__icon {
 }
 
 .contact-info__calculator:hover,
-.contact-info__calculator:focus-visible,
-.contact-form__submit:hover,
-.contact-form__submit:focus-visible {
+.contact-info__calculator:focus-visible {
   opacity: 0.9;
   transform: translateY(-1px);
 }
 
-.contact-info__calculator:focus-visible,
-.contact-form__submit:focus-visible {
+.contact-info__calculator:focus-visible {
   outline: 2px solid rgba(255, 255, 255, 0.82);
   outline-offset: 3px;
 }
@@ -1606,105 +1596,6 @@ a.contact-info__item:focus-visible .contact-info__icon {
 
 .calendly-schedule.is-missing-url .calendly-schedule__fallback {
   display: block;
-}
-
-.contact-form {
-  display: grid;
-  justify-items: center;
-  width: 100%;
-}
-
-.contact-form__grid {
-  display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 34px 16px;
-  width: 100%;
-}
-
-.contact-form__field {
-  display: grid;
-  width: 100%;
-}
-
-.contact-form__field span {
-  position: absolute;
-  width: 1px;
-  height: 1px;
-  padding: 0;
-  margin: -1px;
-  overflow: hidden;
-  clip: rect(0, 0, 0, 0);
-  white-space: nowrap;
-  border: 0;
-}
-
-.contact-form input,
-.contact-form textarea {
-  width: 100%;
-  border: 0;
-  border-radius: 8px;
-  background: rgba(218, 218, 218, 0.68);
-  font-family: "Libre Baskerville", serif;
-  font-size: 12.8px;
-  line-height: 1.3;
-  font-weight: 700;
-  color: #ffffff;
-  outline: none;
-  box-shadow: none;
-  transition: background-color 180ms ease, box-shadow 180ms ease;
-}
-
-.contact-form input {
-  height: 31px;
-  padding: 8px 15px;
-}
-
-.contact-form textarea {
-  min-height: 262px;
-  margin-top: 25px;
-  padding: 13px 15px;
-  resize: vertical;
-}
-
-.contact-form input::placeholder,
-.contact-form textarea::placeholder {
-  color: rgba(255, 255, 255, 0.84);
-  opacity: 1;
-}
-
-.contact-form input:focus,
-.contact-form textarea:focus {
-  background: rgba(218, 218, 218, 0.76);
-  box-shadow: 0 0 0 2px rgba(205, 173, 125, 0.62);
-}
-
-.contact-form__field.is-invalid input,
-.contact-form__field.is-invalid textarea {
-  box-shadow: 0 0 0 2px rgba(205, 173, 125, 0.95);
-}
-
-.contact-form__submit {
-  width: 255px;
-  margin-top: 14px;
-  padding: 10px 28px;
-}
-
-.contact-form__feedback {
-  min-height: 19px;
-  margin: 12px 0 0;
-  font-family: "Inter", sans-serif;
-  font-size: 13px;
-  line-height: 1.45;
-  text-align: center;
-  color: #ffffff;
-}
-
-.contact-form__feedback.is-error {
-  color: #ffffff;
-}
-
-.contact-form__feedback.is-success {
-  color: #cdad7d;
 }
 
 .site-copyright {
@@ -2133,20 +2024,32 @@ a.contact-info__item:focus-visible .contact-info__icon {
   .hero__header {
     align-items: center;
     gap: 12px;
+    justify-content: flex-end;
+    position: relative;
+  }
+
+  .hero__brand {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    flex: unset;
+    min-width: unset;
   }
 
   .hero__brand img {
-    max-width: 162px;
-    min-width: 140px;
+    max-width: 210px;
+    min-width: unset;
+    width: auto;
   }
 
   .hero__header.is-fixed {
     padding: 9px 18px 9px;
+    justify-content: flex-end;
   }
 
   .hero__header.is-fixed .hero__brand img {
-    max-width: 128px;
-    min-width: 110px;
+    max-width: 180px;
+    min-width: unset;
   }
 
   .hero h1 {
@@ -2443,26 +2346,6 @@ a.contact-info__item:focus-visible .contact-info__icon {
   .calendly-schedule iframe {
     height: 720px;
     min-height: 720px;
-  }
-
-  .contact-form__grid {
-    grid-template-columns: 1fr;
-    gap: 16px;
-  }
-
-  .contact-form input {
-    height: 34px;
-  }
-
-  .contact-form textarea {
-    min-height: 190px;
-    margin-top: 16px;
-  }
-
-  .contact-form__submit {
-    width: min(255px, 100%);
-    min-height: 46px;
-    margin-top: 16px;
   }
 
   .site-copyright {

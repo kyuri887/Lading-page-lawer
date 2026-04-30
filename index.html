@@ -29,7 +29,7 @@
     href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Libre+Baskerville:wght@400;700&display=swap"
     rel="stylesheet">
   <link href="https://assets.calendly.com/assets/external/widget.css" rel="stylesheet">
-  <link rel="stylesheet" href="styles.css?v=20260424-29">
+  <link rel="stylesheet" href="styles.css?v=20260429-02">
   <script type="application/ld+json">
     {
       "@context": "https://schema.org",
@@ -59,73 +59,68 @@
   <a class="skip-link" href="#conteudo">Pular para o conteúdo principal</a>
   <main id="conteudo">
     <section class="hero" id="home">
-    <header class="hero__header">
-      <a class="hero__brand" href="#home" aria-label="Jales e Ramos Advogados">
-        <img src="Logo part1.png" alt="Logo Jales e Ramos Advogados" width="1300" height="361" fetchpriority="high"
-          decoding="async">
-      </a>
+      <header class="hero__header">
+        <a class="hero__brand" href="#home" aria-label="Jales e Ramos Advogados">
+          <img src="Logo part1.png" alt="Logo Jales e Ramos Advogados" width="1300" height="361" fetchpriority="high"
+            decoding="async">
+        </a>
 
-      <!-- Menu desktop (visível apenas em telas ≥ 1024px) -->
-      <nav class="hero__nav" aria-label="Menu principal">
-        <a href="#home">HOME</a>
-        <a href="#sobre">SOBRE NÓS</a>
-        <a href="#depoimentos">DEPOIMENTOS</a>
-        <a href="#direito">DIREITO</a>
-        <a href="#duvidas">DÚVIDAS</a>
-        <a href="#contato">CONTATO</a>
+        <nav class="hero__nav" aria-label="Menu principal">
+          <a href="#home">HOME</a>
+          <a href="#sobre">SOBRE NÓS</a>
+          <a href="#depoimentos">DEPOIMENTOS</a>
+          <a href="#direito">DIREITO</a>
+          <a href="#duvidas">DÚVIDAS</a>
+          <a href="#contato">CONTATO</a>
+        </nav>
+
+        <button class="hero__hamburger" id="hamburger-btn" type="button" aria-label="Abrir menu de navegação"
+          aria-expanded="false" aria-controls="mobile-drawer">
+          <span class="hero__hamburger-bar"></span>
+          <span class="hero__hamburger-bar"></span>
+          <span class="hero__hamburger-bar"></span>
+        </button>
+      </header>
+
+      <div class="mobile-overlay" id="mobile-overlay" aria-hidden="true"></div>
+
+      <nav class="mobile-drawer" id="mobile-drawer" aria-label="Menu de navegação mobile" aria-hidden="true">
+        <div class="mobile-drawer__header">
+          <img src="Logo part1.png" alt="Jales e Ramos Advogados" class="mobile-drawer__logo" width="1300" height="361"
+            decoding="async">
+          <button class="mobile-drawer__close" id="drawer-close-btn" type="button" aria-label="Fechar menu">
+            <span></span>
+            <span></span>
+          </button>
+        </div>
+        <ul class="mobile-drawer__links">
+          <li><a href="#home">HOME</a></li>
+          <li><a href="#sobre">SOBRE NÓS</a></li>
+          <li><a href="#depoimentos">DEPOIMENTOS</a></li>
+          <li><a href="#direito">DIREITO</a></li>
+          <li><a href="#duvidas">DÚVIDAS</a></li>
+          <li><a href="#contato">CONTATO</a></li>
+        </ul>
       </nav>
 
-      <!-- Botão hambúrguer (visível apenas em telas < 1024px) -->
-      <button class="hero__hamburger" id="hamburger-btn" type="button" aria-label="Abrir menu de navegação"
-        aria-expanded="false" aria-controls="mobile-drawer">
-        <span class="hero__hamburger-bar"></span>
-        <span class="hero__hamburger-bar"></span>
-        <span class="hero__hamburger-bar"></span>
-      </button>
-    </header>
-
-    <!-- Overlay escuro (fecha o drawer ao clicar fora) -->
-    <div class="mobile-overlay" id="mobile-overlay" aria-hidden="true"></div>
-
-    <!-- Drawer lateral mobile/tablet -->
-    <nav class="mobile-drawer" id="mobile-drawer" aria-label="Menu de navegação mobile" aria-hidden="true">
-      <div class="mobile-drawer__header">
-        <img src="Logo part1.png" alt="Jales e Ramos Advogados" class="mobile-drawer__logo" width="1300" height="361"
-          decoding="async">
-        <button class="mobile-drawer__close" id="drawer-close-btn" type="button" aria-label="Fechar menu">
-          <span></span>
-          <span></span>
-        </button>
+      <div class="hero__content">
+        <h1>
+          <span>Justiça do Trabalho</span>
+          <span>Direito do Trabalhador</span>
+        </h1>
+        <p class="hero__description">
+          Nossa missão é ajudar cada trabalhador para que seja ouvido, respeitado e tenha seus direitos assegurados —
+          porque justiça não deve ser privilégio, e sim um direito de todos.
+        </p>
+        <a class="hero__cta" href="#sobre" aria-label="Saiba mais sobre o escritório">SAIBA MAIS</a>
       </div>
-      <ul class="mobile-drawer__links">
-        <li><a href="#home">HOME</a></li>
-        <li><a href="#sobre">SOBRE NÓS</a></li>
-        <li><a href="#depoimentos">DEPOIMENTOS</a></li>
-        <li><a href="#direito">DIREITO</a></li>
-        <li><a href="#duvidas">DÚVIDAS</a></li>
-        <li><a href="#contato">CONTATO</a></li>
-      </ul>
-    </nav>
-
-    <div class="hero__content">
-      <h1>
-        <span>Justiça do Trabalho</span>
-        <span>Direito do Trabalhador</span>
-      </h1>
-      <p class="hero__description">
-        Nossa missão é ajudar cada trabalhador para que seja ouvido, respeitado e tenha seus direitos assegurados —
-        porque justiça não deve ser privilégio, e sim um direito de todos.
-      </p>
-      <a class="hero__cta" href="#sobre" aria-label="Saiba mais sobre o escritório">SAIBA MAIS</a>
-    </div>
     </section>
 
   <section class="about-history" id="sobre">
     <div class="about-history__watermark" aria-hidden="true"></div>
-    <!-- Imagem de fundo/overlay: ajuste o caminho no CSS em .about-history__watermark -->
 
     <div class="about-history__inner">
-      <h2 class="about-history__title">SOBRE NÓS E A NOSSA HISTÓRIA.</h2>
+      <h2 class="about-history__title">SOBRE NÓS</h2>
 
       <article class="lawyer-profile lawyer-profile--text-left">
         <div class="lawyer-profile__content">
@@ -145,7 +140,6 @@
         </div>
 
         <figure class="lawyer-profile__media lawyer-profile__media--from-right">
-          <!-- Imagem do advogado 1: substitua o src abaixo pelo arquivo correto -->
           <img class="lawyer-profile__photo lawyer-profile__photo--from-right" src="asset/Edson_foto_oficial.jpeg"
             alt="Retrato de Edson Jales" width="861" height="1280" loading="lazy" decoding="async">
         </figure>
@@ -153,7 +147,6 @@
 
       <article class="lawyer-profile lawyer-profile--image-left">
         <figure class="lawyer-profile__media lawyer-profile__media--from-left">
-          <!-- Imagem do advogado 2: substitua o src abaixo pelo arquivo correto -->
           <img class="lawyer-profile__photo lawyer-profile__photo--from-left" src="asset/Ramom Ramos foto oficial.jpeg"
             alt="Retrato de Ramon Ramos" width="1066" height="1456" loading="lazy" decoding="async">
         </figure>
@@ -182,7 +175,6 @@
   </section>
 
   <section class="client-testimonials" id="depoimentos">
-    <!-- Imagem de fundo: ajuste o caminho no CSS em .client-testimonials -->
     <div class="client-testimonials__overlay" aria-hidden="true"></div>
 
     <div class="client-testimonials__inner">
@@ -191,7 +183,6 @@
         <p class="client-testimonials__subtitle">Por que escolher nossa empresa:</p>
       </header>
 
-      <!-- Depoimentos: edite os textos dentro de .testimonial-card__quote -->
       <div class="client-testimonials__grid">
         <article class="testimonial-card">
           <p class="testimonial-card__quote">
@@ -201,7 +192,6 @@
           <div class="testimonial-card__footer">
             <span class="testimonial-card__avatar" aria-hidden="true">RD</span>
             <div>
-              <!-- Nome do cliente: edite o texto abaixo -->
               <p class="testimonial-card__client">Raphael D.</p>
               <div class="testimonial-card__stars" aria-label="Avaliação 5 de 5 estrelas">★★★★★</div>
             </div>
@@ -216,7 +206,6 @@
           <div class="testimonial-card__footer">
             <span class="testimonial-card__avatar" aria-hidden="true">NJ</span>
             <div>
-              <!-- Nome do cliente: edite o texto abaixo -->
               <p class="testimonial-card__client">Neomilton J.S.</p>
               <div class="testimonial-card__stars" aria-label="Avaliação 5 de 5 estrelas">★★★★★</div>
             </div>
@@ -231,7 +220,6 @@
           <div class="testimonial-card__footer">
             <span class="testimonial-card__avatar" aria-hidden="true">MS</span>
             <div>
-              <!-- Nome do cliente: edite o texto abaixo -->
               <p class="testimonial-card__client">Matheus SG</p>
               <div class="testimonial-card__stars" aria-label="Avaliação 5 de 5 estrelas">★★★★★</div>
             </div>
@@ -246,7 +234,6 @@
           <div class="testimonial-card__footer">
             <span class="testimonial-card__avatar" aria-hidden="true">JP</span>
             <div>
-              <!-- Nome do cliente: edite o texto abaixo -->
               <p class="testimonial-card__client">João P.</p>
               <div class="testimonial-card__stars" aria-label="Avaliação 5 de 5 estrelas">★★★★★</div>
             </div>
@@ -261,7 +248,6 @@
           <div class="testimonial-card__footer">
             <span class="testimonial-card__avatar" aria-hidden="true">FL</span>
             <div>
-              <!-- Nome do cliente: edite o texto abaixo -->
               <p class="testimonial-card__client">Fernanda L.</p>
               <div class="testimonial-card__stars" aria-label="Avaliação 5 de 5 estrelas">★★★★★</div>
             </div>
@@ -276,7 +262,6 @@
           <div class="testimonial-card__footer">
             <span class="testimonial-card__avatar" aria-hidden="true">RT</span>
             <div>
-              <!-- Nome do cliente: edite o texto abaixo -->
               <p class="testimonial-card__client">Ricardo T.</p>
               <div class="testimonial-card__stars" aria-label="Avaliação 5 de 5 estrelas">★★★★★</div>
             </div>
@@ -290,7 +275,6 @@
           <div class="testimonial-card__footer">
             <span class="testimonial-card__avatar" aria-hidden="true">AL</span>
             <div>
-              <!-- Nome do cliente: edite o texto abaixo -->
               <p class="testimonial-card__client">Ana L.</p>
               <div class="testimonial-card__stars" aria-label="Avaliação 5 de 5 estrelas">★★★★★</div>
             </div>
@@ -304,7 +288,6 @@
           <div class="testimonial-card__footer">
             <span class="testimonial-card__avatar" aria-hidden="true">LM</span>
             <div>
-              <!-- Nome do cliente: edite o texto abaixo -->
               <p class="testimonial-card__client">Lucas M.</p>
               <div class="testimonial-card__stars" aria-label="Avaliação 5 de 5 estrelas">★★★★★</div>
             </div>
@@ -318,7 +301,6 @@
           <div class="testimonial-card__footer">
             <span class="testimonial-card__avatar" aria-hidden="true">CB</span>
             <div>
-              <!-- Nome do cliente: edite o texto abaixo -->
               <p class="testimonial-card__client">Carla B.</p>
               <div class="testimonial-card__stars" aria-label="Avaliação 5 de 5 estrelas">★★★★★</div>
             </div>
@@ -332,7 +314,6 @@
           <div class="testimonial-card__footer">
             <span class="testimonial-card__avatar" aria-hidden="true">GS</span>
             <div>
-              <!-- Nome do cliente: edite o texto abaixo -->
               <p class="testimonial-card__client">Gustavo S.</p>
               <div class="testimonial-card__stars" aria-label="Avaliação 5 de 5 estrelas">★★★★★</div>
             </div>
@@ -341,7 +322,6 @@
       </div>
 
       <div class="client-testimonials__metrics">
-        <!-- Números de destaque: edite os textos abaixo -->
         <p>10 anos de experiência</p>
         <p>+ 7500 processos</p>
       </div>
@@ -815,18 +795,6 @@
           </button>
         </div>
 
-        <!-- Para voltar ao formato inline, substitua o bloco acima por este:
-        <div
-          class="calendly-schedule"
-          id="calendly-schedule"
-          data-calendly-url="https://calendly.com/kyuri887/reuniao?timezone=America%2FSao_Paulo&hide_event_type_details=1&hide_gdpr_banner=1&primary_color=cdad7d&text_color=192b24&background_color=eeead6"
-          aria-label="Agenda de hor&aacute;rios dispon&iacute;veis pelo Calendly"
-        >
-          <p class="calendly-schedule__fallback">
-            Para ativar a agenda, troque a URL do Calendly no arquivo index.html pela URL p&uacute;blica do seu evento.
-          </p>
-        </div>
-        -->
       </div>
 
       <div class="contact-calculator-area">
@@ -869,7 +837,7 @@
   <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js" defer></script>
   <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js" defer></script>
   <script src="https://assets.calendly.com/assets/external/widget.js" async></script>
-  <script src="script.js?v=20260424-27" defer></script>
+  <script src="script.js?v=20260429-01" defer></script>
 </body>
 
 </html>
